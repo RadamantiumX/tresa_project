@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Files to DB</title>
+</head>
+<body>
+
+   
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file"/> 
+
+    <div id="radio" class="radio">
+        
+            <input type="radio" id="aniq" name="selection" value="ANIQ">
+              <label for="aniq">ANIQ</label><br>
+              <input type="radio" id="penta" name="selection" value="PENTA">
+              <label for="penta">PENTA</label><br>
+              <input type="radio" id="otro" name="selection" value="OTRO">
+              <label for="otro">OTRO</label>
+     </div>  
+
+        <input type="button" value="Enviar" id="upload-button"/>   
+        </form>
+    
+        <!--API RESPONSE MESSAGE-->
+        <div id="response"></div>
+    
+    <!--AXIOS-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--AXIOS-->
+    <script src="script.js"></script>
+    
+</body>
+</html>
