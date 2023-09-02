@@ -40,7 +40,7 @@ function store($file,$selection)
    *  */  
   if($selection == 'ANIQ'){
    if($f_csv){
-    $row = false;//To ignore first row of csv
+    $row = false;//To ignore first row of csv file
     while($data = fgetcsv($f_csv,1000,',')):
         if($row){
         $sql_aniq = "INSERT INTO ANIQ (tope,rfc,nombre,direccion,aduana,estado,agente,pedimento,tipo_ped,pedimen,fecha_n,mesa,cv_doc,documen,p_vc,paisesv,p_od,paiso,fraccion,sec,cantidad,uni_med,unidad,val_adu,valor_dls,val_com,t_c,`desc`,precio,precio_usd,fecha_captura) VALUES (".$data[0].",'".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."','".$data[12]."','".$data[13]."','".$data[14]."','".$data[15]."','".$data[16]."','".$data[17]."','".$data[18]."','".$data[19]."','".$data[20]."','".$data[21]."','".$data[22]."','".$data[23]."','".$data[24]."','".$data[25]."','".$data[26]."','".$data[27]."',".$data[28].",".$data[29].",'".$date."')"; 
@@ -64,7 +64,7 @@ function store($file,$selection)
    *  */ 
 } else if($selection == 'PENTA'){
     if($f_csv){
-        $row = false;//To ignore first row of csv
+        $row = false;//To ignore first row of csv file
         while($data = fgetcsv($f_csv,1000,',')):
             if($row){
             $sql_penta = "INSERT INTO PENTA (ordinal,fecha,codigosa,paisdeorigen,importador,direccionimportador,ciudadimportador,estadoimportacion,proveedor,direccionproveedor,ciudadproveedor,aduana,uscif,usunitario,cantidadcomercial,unidaddemedida,volumenfisico,uvf,kgsbrutos,transporte,documento,descripcionmercancia,fecha_captura) VALUES (".$data[0].",'".$data[1]."','".$data[2]."','".$data[3]."','".$data[4]."','".$data[5]."','".$data[6]."','".$data[7]."','".$data[8]."','".$data[9]."','".$data[10]."','".$data[11]."',".$data[12].",".$data[13].",'".$data[14]."','".$data[15]."',".$data[16].",'".$data[17]."',".$data[18].",'".$data[19]."','".$data[20]."','".$data[21]."','".$date."')"; 
