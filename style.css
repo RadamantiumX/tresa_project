@@ -1,6 +1,39 @@
+* {
+    box-sizing: border-box;
+  }
+  html, body, #root, #defaultLayout, #guestLayout {
+    min-height: 100vh;
+  }
+  
+  .login-body {
+    
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #212121;
+    background: radial-gradient(circle, rgba(174,238,206,1) 0%, rgba(148,187,233,1) 100%);
+  }
+
 .radio{
     display: none;
 }
 #upload-button{
+    display: none;
+}
+
+/*
+*Login Styles
+
+*/
+
+.main{
+    margin-top: 100px;
+}
+.login-form{
+    width: auto;
+}
+
+
+#password-recovery{
     display: none;
 }

@@ -10,7 +10,7 @@
 
    
     <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" id="file-input" name="file"/> 
+        <input onload="loadData()" type="file" id="file-input" name="file"/> 
 
     <div id="radio" class="radio">
         
@@ -26,12 +26,46 @@
     
         <!--API RESPONSE MESSAGE-->
         <div id="response"></div>
-    
+        <div class="container" id="container-table"><table id="table-data"></table></div>
+    <script src="script.js"></script>
     <!--AXIOS-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!--AXIOS-->
     
-    <script src="script.js"></script>
+    
+    <script>
+        function loadData(e) {
+        let fileRead = e.target.files[0];
+        if(fileRead){
+            const reader = new FileReader();
+            reader.onload = function (e){
+                const contents = e.target.result;
+                const lines = contents.split('\n');
+
+                const table = document.getElementById('table-data');
+                table.innerHTML = '';
+
+                for (let i = 0; i < lines.length; i++){
+                    const row = document.createElement('tr');
+                    const cells = lines[i].split(',');
+
+                    for (let j = 0; j < cells.length; j++){
+                        const cell = i === 0 ? document.createElement('th') : document.createElement('td');
+                        cell.textContent = cells[j];
+                        row.appendChild(cell);
+                    }
+
+                    table.appendChild(row);
+                }
+                const tableContainer = document.getElementById('container');
+                tableContainer.innerHTML = '';
+                tableContainer.appendChild(table);
+            }
+
+            reader.readAsText(fileRead);
+        }
+        }
+    </script>
     
 </body>
 </html>

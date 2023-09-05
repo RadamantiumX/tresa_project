@@ -8,6 +8,7 @@ include('conn.php');
 //Display data
 function index()
 {
+
     $conn = conection();
     $sql = "SELECT * FROM TREZA LIMIT 30";//Change before deploy
     $results = mysqli_query($conn,$sql);
@@ -30,16 +31,19 @@ function index()
 function store($file,$selection)
 {
     
+    
     $conn = conection();
     $f_csv = fopen($file,'r');
+   
+    
     $date = date('Y-m-d');//Actual Timestamp
 
   /**
    * Table name: ANIQ 
    * COLUMNS: 32
    *  */  
-  if($selection == 'ANIQ'){
-   if($f_csv){
+  if($selection == 'ANIQ' ){
+   if($f_csv ){
     $row = false;//To ignore first row of csv file
     while($data = fgetcsv($f_csv,1000,',')):
         if($row){
@@ -86,4 +90,17 @@ function store($file,$selection)
     return "La tabla no existe";
 }
 
+}
+
+function userLogin($email,$password)
+{
+     $conn = conection();
+     $sql_login = "SELECT * FROM logins WHERE user_email = '$email' AND password = '$password'";
+     $results = mysqli_query($conn, $sql_login);
+     
+     if($data = $results->fetch_object()){
+        return uniqid();
+     }else{
+        return 'Acceso denegado';
+     }
 }
