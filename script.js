@@ -6,9 +6,7 @@
     const tableContainer = document.getElementById('container-data');
     const loading = document.getElementById('loading');
     
-    window.addEventListener('load',()=>{
-        window.location.href = "http://localhost/tresa/login.html"
-    })
+    
 
     fileInput.addEventListener('change',function(e){
         let fileRead = e.target.files[0];

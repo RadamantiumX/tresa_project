@@ -91,15 +91,20 @@ function store($file,$selection)
 }
 
 }
-
+/**
+ * User Auth
+ * Table: Login
+ */
 function userLogin($email,$password)
 {
      $conn = conection();
-     $sql_login = "SELECT * FROM logins WHERE user_email = '$email' AND password = '$password'";
+     $sql_login = "SELECT userID,user_email,user_name FROM logins WHERE user_email = '$email' AND password = '$password'";
      $results = mysqli_query($conn, $sql_login);
      
+
+     //Table Validation
      if($data = $results->fetch_object()){
-        return uniqid();
+        return array(['token'=>uniqid(),'user'=>$data]) ;//Token Creation
      }else{
         return 'Acceso denegado';
      }

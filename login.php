@@ -14,5 +14,5 @@ if(isset($_POST['email']) && isset($_POST['password']) ){
 
 
 }else{
-    echo json_encode('Datos icompletos...');
+    echo json_encode('Datos incompletos...');
 }
