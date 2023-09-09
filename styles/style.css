@@ -20,6 +20,9 @@
 #upload-button{
     display: none;
 }
+#password-update{
+  display: none;
+}
 
 /*
 *Login Styles
@@ -36,4 +39,13 @@
 
 #password-recovery{
     display: none;
+}
+#alert{
+  display: none;
+}
+#reset-alert{
+  display: none;
+}
+#spinner-await{
+  display: none;
 }
